@@ -1,0 +1,22 @@
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\setbeamertemplate{blocks}[triangle]
+\setbeamertemplate{items}[triangle]
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+
+\newcounter{internalframecnt}
+\setcounter{internalframecnt}{0}
+
+\setbeamertemplate{background canvas}{%
+  \ifnum\c@internalframecnt=0%
+  \includegraphics[width=\paperwidth]{McGillBackground}%
+  \fi%
+  \addtocounter{internalframecnt}{1}%
+}
+
+\mode<all>
