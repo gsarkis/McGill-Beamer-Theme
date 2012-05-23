@@ -19,4 +19,16 @@
   \addtocounter{internalframecnt}{1}%
 }
 
+%From: http://blog.nguyenvq.com/2011/06/14/modify-spacings-in-listing-itemizeenumerate-environments-for-latex-beamer/
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{0.5\baselineskip}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+\setbeamertemplate{itemize/enumerate body begin}{\vspace{0.5\baselineskip}}
+\setbeamertemplate{itemize/enumerate body end}{\vspace{0.5\baselineskip}}
+\setbeamertemplate{itemize/enumerate subbody begin}{\vspace{0.5\baselineskip}}
+\setbeamertemplate{itemize/enumerate subbody end}{\vspace{-0.5\baselineskip}}
+
 \mode<all>
