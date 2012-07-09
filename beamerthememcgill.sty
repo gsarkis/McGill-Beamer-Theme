@@ -9,7 +9,12 @@
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm,rightskip=0.3cm]{author in head/foot}%
-      \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)\hfill\insertframenumber/\inserttotalframenumber
+      \usebeamerfont{author in head/foot}\insertshortauthor%
+      \ifx\beamer@shortinstitute\@empty%
+      \else%
+      ~~(\insertshortinstitute)%
+      \fi%
+      \hfill\insertframenumber/\inserttotalframenumber%
     \end{beamercolorbox}%
   }%
 }
