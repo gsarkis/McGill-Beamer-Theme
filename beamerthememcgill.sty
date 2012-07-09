@@ -6,15 +6,31 @@
 \setbeamerfont{title}{size=\Large}
 
 \setbeamertemplate{footline}{
+  \ifx \beamer@shorttitle \@empty%
+  \newcommand{\authorboxwidth}{0.5\paperwidth}%
+  \newcommand{\pagenumboxwidth}{0.5\paperwidth}%
+  \else%
+  \newcommand{\authorboxwidth}{0.32\paperwidth}%
+  \newcommand{\titleboxwidth}{0.36\paperwidth}%
+  \newcommand{\pagenumboxwidth}{0.32\paperwidth}%
+  \fi%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm,rightskip=0.3cm]{author in head/foot}%
+    \begin{beamercolorbox}[wd=\authorboxwidth,ht=2.25ex,dp=1ex,left,leftskip=3mm]{author in head/foot}%
       \usebeamerfont{author in head/foot}\insertshortauthor%
       \ifx\beamer@shortinstitute\@empty%
       \else%
       ~~(\insertshortinstitute)%
       \fi%
-      \hfill\insertframenumber/\inserttotalframenumber%
+    \end{beamercolorbox}%
+    \ifx\beamer@shorttitle\@empty%
+    \else%
+    \begin{beamercolorbox}[wd=\titleboxwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle%
+    \end{beamercolorbox}%
+    \fi%
+    \begin{beamercolorbox}[wd=\pagenumboxwidth,ht=2.25ex,dp=1ex,right,rightskip=3mm]{page number in head/foot}%
+      \usebeamerfont{page number in head/foot}\insertframenumber/\inserttotalframenumber%
     \end{beamercolorbox}%
   }%
 }
